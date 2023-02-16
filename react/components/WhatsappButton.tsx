@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import React from "react"
 
 type Props = {
   logo: string
@@ -9,22 +10,22 @@ type Props = {
 }
 
 const WhatsappButton = ({logo, phone, message, width, height}: Props) => {
-  const formattedMessage= message.replace(/ /g, "20%")
-
+  const formattedMessage= message.replace(/ /g, " ")
  return <>
-  <div className="fixed bottom-2 right-2 flex flexColum">
+  <div className="fixed bottom-2 right-1 flex flexColum" style= {{zIndex: 100, bottom: "50px"}}>
     <a
         href={`https://wa.me/${phone}?text=${formattedMessage}`}
         target= "_blank"
         rel= "noreferrer noopener"
       >
-          <img
+        <img
+
               src={logo}
               width={width}
               height={height}
               alt= "Logo de Whatsapp"
-              />
-   </a>
+          />
+      </a>
     </div>
  </>
 }
@@ -38,11 +39,11 @@ WhatsappButton.PropTypes = {
 }
 
 WhatsappButton.defaultProps = {
-  logo: "",
+  logo: "imagen.png",
   phone: "3002580000",
   message: "Estás comunicandote con VTEX University, por favor ingresa tu duda",
-  width: 80,
-  height: 80
+  width: 60,
+  height: 60
 }
 
 WhatsappButton.schema = {
